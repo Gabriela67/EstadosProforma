@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; // Reemplaza "tu_contraseña" con la contraseña correcta
+$password = ""; 
 $database = "contabilidad";
 
 // Conectar a la base de datos

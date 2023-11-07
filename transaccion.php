@@ -34,17 +34,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nuevoTotal = $total + ($tipo1 == 1 ? $valor1 : -$valor1); // Suma si es Debe, resta si es Haber
 
         // Actualiza el campo "TOTAL" en la tabla "cuentas" para la cuenta específica
-        $queryUpdate = "UPDATE cuentas SET TOTAL = ? WHERE DETALLE = ?";
+        $queryUpdate = "UPDATE cuentas SET TOTAL = ?, FECHA = ? WHERE DETALLE = ?";
+
         $stmtUpdate = $mysqli->prepare($queryUpdate);
 
         // Verifica si la consulta preparada se ejecuta correctamente
         if ($stmtUpdate) {
-            $stmtUpdate->bind_param("ss", $nuevoTotal, $cuenta1);
+            $stmtUpdate->bind_param("sss", $nuevoTotal, $fecha, $cuenta1); 
 
             // Ejecuta la consulta de actualización
             if ($stmtUpdate->execute()) {
                 // La actualización en la tabla "cuentas" para la cuenta específica fue exitosa
-                // Puedes mostrar un mensaje de éxito aquí
+            
                 echo '<script type="text/javascript">
                 Swal.fire({
                     position: "top-end",

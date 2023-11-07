@@ -5,16 +5,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre = $_POST['nombre'];
     $codigo = $_POST['codigo'];
     $razon = $_POST['tipo'];
-
+     //establece la conexion ala base de datos
     $conn = new mysqli("localhost", "root", "", "contabilidad");
 
     if ($conn->connect_error) {
         die("Conexión fallida: " . $conn->connect_error);
     }
-
+    //query para insertar la cuenta en la base de datos
     $query2 = "INSERT INTO cuentas (CODIGO, DETALLE, RAZON) VALUES ('$codigo', '$nombre', '$razon')";
     if ($conn->query($query2) === TRUE) {
         echo "Registro insertado exitosamente";
+        //Muestra una notificacion usando SweetAlert en caso de exito.
         echo '<script type="text/javascript">
         Swal.fire({
             position: "top-end",
@@ -25,7 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           })
          </script>';
     } else {
-        echo "Error al insertar el registro: " . $conn->error;
+        echo "Error al insertar el registro: " . 
+        //cierra la conexion
+        $conn->error;
     }
 
     $conn->close();

@@ -18,6 +18,7 @@ if ($mysqli->connect_error) {
             <th>DETALLE</th>
             <th>RAZON</th>
             <th>TOTAL($)</th>
+            <th>ULTIMA FECHA DE TRANSACCION</th>
         </tr>
         <?php
       $consulta = $mysqli->query("SELECT * FROM cuentas ORDER BY CAST(SUBSTRING(CODIGO, 1, 2) AS SIGNED)");
@@ -28,6 +29,7 @@ if ($mysqli->connect_error) {
                     <td>{$linea['DETALLE']}</td>
                     <td>{$linea['RAZON']}</td>
                     <td>{$linea['TOTAL']}</td>
+                    <td>{$linea['FECHA']}</td>
                 </tr>";
             }
         } else {
