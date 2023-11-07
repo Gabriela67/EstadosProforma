@@ -21,12 +21,8 @@ if ($mysqli->connect_error) {
 }
 
         // Realiza la consulta SQL usando MySQLi
-        $query = "SELECT * FROM cuentas";
-        $result = $mysqli->query($query);
-
-        // Verifica si la consulta se ejecutó correctamente
-        if ($result) {
-            while ($linea = $result->fetch_assoc()) {
+        $consulta = $mysqli->query("SELECT * FROM cuentas ORDER BY CAST(SUBSTRING(CODIGO, 1, 2) AS SIGNED)");        if ($consulta) {
+            while ($linea = $consulta->fetch_assoc()) {
                 echo "<tr>
                     <td>{$linea['CODIGO']}</td>
                     <td>{$linea['DETALLE']}</td>
@@ -34,10 +30,8 @@ if ($mysqli->connect_error) {
                 </tr>";
             }
         } else {
-            echo "Error en la consulta SQL: " . $mysqli->error;
+            echo "Error en la consulta: " . $mysqli->error;
         }
-
-        // Cierra la conexión a la base de datos
         $mysqli->close();
         ?>
     </table>

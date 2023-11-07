@@ -26,6 +26,7 @@
             <a href="transaccion.php">Realizar Transacción</a>
             <a href="resultados.php">Estado de Resultados Pro-Forma</a>
             <a href="balanceGral.php">Balance General Pro-Forma</a>
+			<a href="NombresEstudiantes.php">Nombre de Estudiantes</a>
         </nav>
     </div>
 </div>
