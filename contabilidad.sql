@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2023 a las 05:11:30
+-- Tiempo de generación: 07-11-2023 a las 04:04:57
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -31,27 +31,28 @@ CREATE TABLE `cuentas` (
   `DETALLE` varchar(50) NOT NULL,
   `RAZON` varchar(100) NOT NULL,
   `CODIGO` int(11) NOT NULL,
-  `TOTAL` int(11) NOT NULL
+  `TOTAL` int(11) NOT NULL,
+  `FECHA` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cuentas`
 --
 
-INSERT INTO `cuentas` (`DETALLE`, `RAZON`, `CODIGO`, `TOTAL`) VALUES
-('Capital contable', 'Patrimonio', 31, 18),
-('Efectivo y equivalente', 'Activo', 1101, 200),
-('cuentas y Documentos por cobrar', 'Activo', 1102, 3),
-('inventarios', 'Activo', 1104, 18),
-('propiedad planta y equipo', 'Activo', 1201, 0),
-('cuentas y Documentos por Pagar', 'Pasivo', 2101, 205),
-('acreedores varios', 'Pasivo', 2104, 17),
-('gastos de administracion', 'Gasto', 4201, 0),
-('gastos Financieros', 'Gasto', 4455, 0),
-('ventas', 'Ingreso', 5101, 73),
-('prestamos', 'Activo', 11222, 0),
-('comisiones y vacaciones', 'Gasto', 420103, 4),
-('gastos Operativos', 'Gasto', 420105, 29);
+INSERT INTO `cuentas` (`DETALLE`, `RAZON`, `CODIGO`, `TOTAL`, `FECHA`) VALUES
+('Capital contable', 'Patrimonio', 31, 18, NULL),
+('Efectivo y equivalente', 'Activo', 1101, 216, '2023-11-08'),
+('cuentas y Documentos por cobrar', 'Activo', 1102, 3, NULL),
+('inventarios', 'Activo', 1104, 33, '2023-11-06'),
+('propiedad planta y equipo', 'Activo', 1201, 0, NULL),
+('cuentas y Documentos por Pagar', 'Pasivo', 2101, 209, '2023-11-06'),
+('acreedores varios', 'Pasivo', 2104, 17, NULL),
+('gastos de administracion', 'Gasto', 4201, 0, NULL),
+('gastos Financieros', 'Gasto', 4455, 0, NULL),
+('ventas', 'Ingreso', 5101, 73, NULL),
+('prestamos', 'Activo', 11222, 0, NULL),
+('comisiones y vacaciones', 'Gasto', 420103, 4, NULL),
+('gastos Operativos', 'Gasto', 420105, 29, NULL);
 
 --
 -- Índices para tablas volcadas
